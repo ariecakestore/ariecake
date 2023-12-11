@@ -343,23 +343,22 @@ body {
 
 .about .row {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about .row .about-img {
-  flex: 1 1 45rem;
+  justify-content: center;
 }
 
 .about .row .about-img img {
   width: 100%;
-  -webkit-mask-image: url('../img/menu/splash.svg');
-  -webkit-mask-size: 50%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
 }
 
 .about .row .content {
   flex: 1 1 35rem;
   padding: 0 1rem;
+
 }
 
 .about .row .content h3 {
@@ -368,6 +367,7 @@ body {
 }
 
 .about .row .content p {
+  text-align: justify;
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
   /* font-weight: 100; */
