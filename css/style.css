@@ -392,6 +392,7 @@ body {
 
 .menu .row {
   display: flex;
+  gap: 3rem;
   flex-wrap: wrap;
   margin-top: 5rem;
   justify-content: center;
@@ -404,7 +405,7 @@ body {
 
 .menu .row .menu-card img {
   border-radius: 50%;
-  width: 80%;
+  width: 240px;
 }
 
 .menu .row .menu-card .menu-card-title {
@@ -730,6 +731,6 @@ footer .credit a {
 /* Mobile Phone */
 @media (max-width: 450px) {
   html {
-    font-size: 55%;
+    font-size: 59%;
   }
 }

@@ -73,7 +73,7 @@
           </div>
         </div>
       </template>
-      <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart is empty</h4>
+      <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Keranjang kosong</h4>
       <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
 
       <div class="form-container" x-show="$store.cart.items.length">
@@ -122,7 +122,7 @@
       <div class="content">
         <h3>Kenapa memilih kue kami?</h3>
         <p>
-        Kami adalah orang yang berkomitmen menciptakan pengalaman manis melalui kue, tart, kue kering, dll.</p>
+        Kami adalah orang yang berkomitmen dalam menciptakan pengalaman manis melalui kue, tart, kue kering, dll.</p>
         <p>Setiap karya seni kami dipersembahkan dengan bahan berkualitas tinggi dan dekorasi teliti oleh ahli kami. Percayakan kepada kami untuk membuat momen spesial Anda lebih manis.</p>
       </div>
     </div>
@@ -131,40 +131,34 @@
 
   <!-- Menu Section start -->
   <section id="menu" class="menu">
-    <h2><span>Menu</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, repellendus numquam quam tempora voluptatum.
+    <h2><span>Kategori</span> Produk</h2>
+    <p>Kami menyediakan berbagai produk kue dengan kategori yang beragam, antara lain: 
     </p>
 
     <div class="row">
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
+        <img src="img/menu/kue tart.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Kue Tart -</h3>
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Capuccino -</h3>
-        <p class="menu-card-price">IDR 25K</p>
+        <img src="img/menu/kue roll.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Kue Roll -</h3>
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Latte -</h3>
-        <p class="menu-card-price">IDR 20K</p>
+        <img src="img/menu/brownies.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Brownies -</h3>
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
+        <img src="img/menu/bolu.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Bolu -</h3>
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
+        <img src="img/menu/kue kering.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Kue Kering -</h3>
       </div>
       <div class="menu-card">
-        <img src="img/menu/1.jpg" alt="Espresso" class="menu-card-img">
-        <h3 class="menu-card-title">- Espresso -</h3>
-        <p class="menu-card-price">IDR 15K</p>
+        <img src="img/menu/kue basah.svg" alt="Espresso" class="menu-card-img">
+        <h3 class="menu-card-title">- Kue Basah -</h3>
       </div>
     </div>
   </section>
@@ -172,10 +166,11 @@
 
   <!-- Products Section start -->
   <section class="products" id="products" x-data="products">
-    <h2><span>Produk Unggulan</span> Kami</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo unde eum, ab fuga possimus iste.</p>
+    <h2><span>Produk</span> Kami</h2>
+    <p style="font-weight: bold; font-size: 30px;">Maaf toko TUTUP SEMENTARA</p>
+    <!-- <p>Kami menjual sekitar 50 produk, diantaranya:</p> -->
 
-    <div class="row">
+    <!-- <div class="row">
       <template x-for="(item, index) in items" x-key="index">
         <div class="product-card">
         <div class="product-icons">
@@ -211,18 +206,11 @@
         </div>
         <div class="product-content">
           <h3 x-text="item.name"></h3>
-          <!-- <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star"></i>
-          </div> -->
           <div class="product-price"><span x-text="rupiah(item.price)"></span></div>
         </div>
         </div>
       </template>
-    </div>
+    </div> -->
   </section>
 
   <!-- Products Section end -->
