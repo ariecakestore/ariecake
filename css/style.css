@@ -248,7 +248,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('../img/header-bg.jpeg');
+  background-image: url('../img/header-ariecake-store-mid.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -271,7 +271,7 @@ body {
   position: absolute;
   /* background: salmon; */
   inset: 0;
-  -webkit-mask-image: url('../img/header-bg.svg');
+  -webkit-mask-image: url('../img/header-ariecake-store-mid.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
   -webkit-mask-position: center;
