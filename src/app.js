@@ -6,9 +6,14 @@ document.addEventListener('alpine:init', () => {
             { id: 3, name: 'Primo Passo', img: 'img/products/1.jpg', price: 22000 },
             { id: 4, name: 'Aceh Gayo', img: 'img/products/1.jpg', price: 23000 },
             { id: 5, name: 'Sumatera Mandheling', img: 'img/products/1.jpg', price: 24000 },
+            { id: 6, name: 'Dalgona Coffee', img: 'img/products/1.jpg', price: 25000 },
+            { id: 7, name: 'Luwak White Coffee', img: 'img/products/1.jpg', price: 26000 },
+            { id: 8, name: 'Torabika Kapal Api', img: 'img/products/1.jpg', price: 27000 },
+            { id: 9, name: 'Torabika Kapal Laut', img: 'img/products/1.jpg', price: 28000 },
+            { id: 10, name: 'Torabika Kapal Selam', img: 'img/products/1.jpg', price: 29000 },
         ],
     }));
-    
+
     Alpine.store('cart', {
         items: [],
         total: 0,
@@ -20,9 +25,9 @@ document.addEventListener('alpine:init', () => {
 
             // jika belum ada / cart masih kosong
             if (!cartItem) {
-                this.items.push({...newItem, quantity: 1, total: newItem.price});
+                this.items.push({ ...newItem, quantity: 1, total: newItem.price });
                 this.quantity++;
-                this.total += newItem.price;  
+                this.total += newItem.price;
             } else {
                 // jika barang sudah ada, cek apakah barang beda atau sama dengan yang ada di cart
                 this.items = this.items.map((item) => {
@@ -70,7 +75,51 @@ document.addEventListener('alpine:init', () => {
     });
 });
 
-// konversi ke rupiah
+const checkoutButton = document.querySelector('.checkout-button');
+checkoutButton.disabled = true;
+
+const form = document.querySelector('#checkoutForm');
+
+form.addEventListener('keyup', function () {
+    let enableButton = true;
+
+    for (let i = 0; i < form.elements.length; i++) {
+        if (form.elements[i].type !== 'submit' && form.elements[i].value.length === 0) {
+            enableButton = false;
+            break;
+        }
+    }
+
+    checkoutButton.disabled = !enableButton;
+
+    if (enableButton) {
+        checkoutButton.classList.remove('disabled');
+    } else {
+        checkoutButton.classList.add('disabled');
+    }
+});
+
+checkoutButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+    const objData = Object.fromEntries(data);
+    const message = formatMessage(objData);
+    window.open('https://wa.me/+6285156406238?text=' + encodeURIComponent(message));
+    console.log(message);
+});
+
+const formatMessage = (obj) => {
+    return `Data Customer
+    Nama: ${obj.name}
+    Email: ${obj.email}
+    No HP: ${obj.phone}
+Data Pesanan
+    ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+    TOTAL: ${rupiah(obj.total)}
+    TERIMA KASIH.`;
+};
+
 const rupiah = (number) => {
     return new Intl.NumberFormat('id-ID', {
         style: 'currency',
