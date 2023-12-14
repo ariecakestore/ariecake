@@ -183,11 +183,7 @@
       </p>
 
       <div class="row">
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img
             src="img/menu/kue tart.svg"
             alt="Espresso"
@@ -195,11 +191,7 @@
           />
           <h3 class="menu-card-title">- Kue Tart -</h3>
         </div>
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img
             src="img/menu/kue roll.svg"
             alt="Espresso"
@@ -207,11 +199,7 @@
           />
           <h3 class="menu-card-title">- Kue Roll -</h3>
         </div>
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img
             src="img/menu/brownies.svg"
             alt="Espresso"
@@ -219,19 +207,11 @@
           />
           <h3 class="menu-card-title">- Brownies -</h3>
         </div>
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img src="img/menu/bolu.svg" alt="Espresso" class="menu-card-img" />
           <h3 class="menu-card-title">- Bolu -</h3>
         </div>
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img
             src="img/menu/kue kering.svg"
             alt="Espresso"
@@ -239,11 +219,7 @@
           />
           <h3 class="menu-card-title">- Kue Kering -</h3>
         </div>
-        <div
-          class="menu-card"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
+        <div class="menu-card" data-aos="fade-up" data-aos-duration="800">
           <img
             src="img/menu/kue basah.svg"
             alt="Espresso"
@@ -257,8 +233,14 @@
 
     <!-- Products Section start -->
     <section class="products" id="products" x-data="products">
-      <h2><span>Produk</span> Kami</h2>
-      <p style="font-weight: bold; font-size: 30px">
+      <h2 data-aos="fade-up" data-aos-duration="800">
+        <span>Produk</span> Kami
+      </h2>
+      <p
+        data-aos="fade-up"
+        data-aos-duration="800"
+        style="font-weight: bold; font-size: 30px"
+      >
         Maaf toko TUTUP SEMENTARA
       </p>
     </section>
@@ -267,13 +249,15 @@
 
     <!-- Contact Section start -->
     <section id="contact" class="contact">
-      <h2><span>Kontak</span> Kami</h2>
-      <p>
+      <h2 data-aos="fade-up" data-aos-duration="800">
+        <span>Kontak</span> Kami
+      </h2>
+      <p data-aos="fade-up" data-aos-duration="800">
         Percayakan kepada kami untuk membuat momen spesial Anda lebih manis.
         Hubungi kami hari ini!
       </p>
 
-      <div class="row">
+      <div class="row" data-aos="fade-up" data-aos-duration="800">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.1024949099202!2d113.52364493744241!3d-7.72172758714743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd703136504d563%3A0x82c39c8c196f31f0!2sArie%20Cake%20Tart%20Decoration%20%26%20Cookies!5e0!3m2!1sen!2sid!4v1702275896343!5m2!1sen!2sid"
           allowfullscreen=""
@@ -282,18 +266,31 @@
           class="map"
         ></iframe>
 
-        <form action="">
+        <form
+          action="https://script.google.com/macros/s/AKfycbznuljAxuJ6lfGlNJ2h6Es6eeMozEdmESame1S5zRR8Oh3g_CM8gPztCx3_aCrsisB6/exec"
+          method="post"
+          id="my-form"
+        >
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
+            <input type="text" placeholder="nama" name="nama" id="nama" />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
+            <input type="text" placeholder="email" name="email" id="email" />
           </div>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="text" placeholder="no hp" />
+            <input type="number" placeholder="no hp" name="phone" id="phone" />
+          </div>
+          <div class="input-group">
+            <i data-feather="message-square"></i>
+            <input
+              type="text"
+              placeholder="pesan atau kritik dan saran"
+              name="pesan"
+              id="pesan"
+            />
           </div>
           <button type="submit" class="btn">kirim pesan</button>
         </form>
@@ -361,6 +358,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+
+    <script>
+      
     </script>
   </body>
 </html>
