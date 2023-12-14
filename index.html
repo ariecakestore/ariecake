@@ -1,280 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arie Cake Tart Decoration & Cookies</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arie Cake Tart Decoration & Cookies</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
-    rel="stylesheet" />
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
 
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <!-- My Style -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- alpine js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
 
-  <!-- alpine js -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- app -->
+    <script src="src/app.js" async></script>
 
-  <!-- app -->
-  <script src="src/app.js" async></script>
-</head>
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
 
-<body>
-  <!-- Navbar start -->
-  <nav class="navbar" x-data="products">
-    <a href="#" class="navbar-logo">Arie<span>C&D</span>.</a>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar" x-data="products">
+      <a href="#" class="navbar-logo">Arie<span>C&D</span>.</a>
 
-    <div class="navbar-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#menu">Menu</a>
-      <a href="#products">Produk</a>
-      <a href="#contact">Kontak</a>
-    </div>
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#products">Produk</a>
+        <a href="#contact">Kontak</a>
+      </div>
 
-    <div class="navbar-extra">
-      <a href="#" id="search-button"><i data-feather="search"></i></a>
-      <a href="#" id="shopping-cart-button">
-        <i data-feather="shopping-cart"></i>
-        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
-      </a>
-      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-    </div>
+      <div class="navbar-extra">
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
 
-    <!-- Search Form start -->
-    <div class="search-form">
-      <input type="search" id="search-box" placeholder="search here..." />
-      <label for="search-box"><i data-feather="search"></i></label>
-    </div>
-    <!-- Search Form end -->
+      <!-- Search Form start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
 
-    <!-- Shopping Cart start -->
-    <div class="shopping-cart">
-      <template x-for="(item, index) in $store.cart.items" x-key="index">
-        <div class="cart-item">
-          <img :src="item.img" :alt="item.name" />
-          <div class="item-detail">
-            <h3 x-text="item.name"></h3>
-            <div class="item-price">
-              <span x-text="rupiah(item.price)"></span> &times;
-              <button id="remove" @click="$store.cart.remove(item.id)">
-                &minus;
-              </button>
-              <span x-text="item.quantity"></span>
-              <button id="add" @click="$store.cart.add(item)">&plus;</button>
-              &equals;
-              <span x-text="rupiah(item.total)"></span>
+      <!-- Shopping Cart start -->
+      <div class="shopping-cart">
+        <template x-for="(item, index) in $store.cart.items" x-key="index">
+          <div class="cart-item">
+            <img :src="item.img" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">
+                  &minus;
+                </button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button>
+                &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
             </div>
           </div>
-        </div>
-      </template>
-      <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
-        Keranjang kosong
-      </h4>
-      <h4 x-show="$store.cart.items.length">
-        Total : <span x-text="rupiah($store.cart.total)"></span>
-      </h4>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">
+          Keranjang kosong
+        </h4>
+        <h4 x-show="$store.cart.items.length">
+          Total : <span x-text="rupiah($store.cart.total)"></span>
+        </h4>
 
-      <div class="form-container" x-show="$store.cart.items.length">
-        <form action="" id="checkoutForm">
-          <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
-          <input type="hidden" name="total" x-model="$store.cart.total" />
-          <h5>Customer Detail</h5>
-          <label for="name">
-            <span>Name</span>
-            <input type="text" name="name" id="name" />
-          </label>
-          <label for="email">
-            <span>Email</span>
-            <input type="email" name="email" id="email" />
-          </label>
-          <label for="phone">
-            <span>Phone</span>
-            <input type="number" name="phone" id="phone" autocomplete="off" />
-          </label>
-          <button class="checkout-button disabled" type="submit" id="checkout-button">
-            Checkout
-          </button>
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input
+              type="hidden"
+              name="items"
+              x-model="JSON.stringify($store.cart.items)"
+            />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+            <h5>Customer Detail</h5>
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="name" id="name" />
+            </label>
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" />
+            </label>
+            <label for="phone">
+              <span>Phone</span>
+              <input type="number" name="phone" id="phone" autocomplete="off" />
+            </label>
+            <button
+              class="checkout-button disabled"
+              type="submit"
+              id="checkout-button"
+            >
+              Checkout
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Shopping Cart end -->
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Hero Section start -->
+    <section class="hero" id="home">
+      <div class="mask-container">
+        <main class="content">
+          <h1>Pesan kue jadi lebih <span>Mudah</span></h1>
+          <!-- <p>Dengan layanan yang ramah dan profesional, kami berusaha memberikan pengalaman terbaik dalam setiap pesanan kue yang ditempatkan bersama kami.</p> -->
+        </main>
+      </div>
+    </section>
+    <!-- Hero Section end -->
+
+    <!-- About Section start -->
+    <section id="about" class="about">
+      <h2 data-aos="fade-up" data-aos-duration="800">
+        <span>Tentang</span> Kami
+      </h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img
+            data-aos="fade-up"
+            data-aos-duration="800"
+            src="img/ariecakelogo.png"
+            alt="Tentang Kami"
+          />
+        </div>
+        <div class="content">
+          <h3 data-aos="fade-up" data-aos-duration="800">
+            Kenapa memilih kue kami?
+          </h3>
+          <p data-aos="fade-up" data-aos-duration="800">
+            Kami adalah orang yang berkomitmen dalam menciptakan pengalaman
+            manis melalui kue, tart, kue kering, dll.
+          </p>
+          <p data-aos="fade-up" data-aos-duration="800">
+            Setiap karya seni kami dipersembahkan dengan bahan berkualitas
+            tinggi dan dekorasi teliti oleh ahli kami. Percayakan kepada kami
+            untuk membuat momen spesial Anda lebih manis.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- About Section end -->
+
+    <!-- Menu Section start -->
+    <section id="menu" class="menu">
+      <h2 data-aos="fade-up" data-aos-duration="800">
+        <span>Kategori</span> Produk
+      </h2>
+      <p data-aos="fade-up" data-aos-duration="800">
+        Kami menyediakan berbagai produk kue dengan kategori yang beragam,
+        antara lain:
+      </p>
+
+      <div class="row">
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img
+            src="img/menu/kue tart.svg"
+            alt="Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Kue Tart -</h3>
+        </div>
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img
+            src="img/menu/kue roll.svg"
+            alt="Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Kue Roll -</h3>
+        </div>
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img
+            src="img/menu/brownies.svg"
+            alt="Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Brownies -</h3>
+        </div>
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img src="img/menu/bolu.svg" alt="Espresso" class="menu-card-img" />
+          <h3 class="menu-card-title">- Bolu -</h3>
+        </div>
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img
+            src="img/menu/kue kering.svg"
+            alt="Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Kue Kering -</h3>
+        </div>
+        <div
+          class="menu-card"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <img
+            src="img/menu/kue basah.svg"
+            alt="Espresso"
+            class="menu-card-img"
+          />
+          <h3 class="menu-card-title">- Kue Basah -</h3>
+        </div>
+      </div>
+    </section>
+    <!-- Menu Section end -->
+
+    <!-- Products Section start -->
+    <section class="products" id="products" x-data="products">
+      <h2><span>Produk</span> Kami</h2>
+      <p style="font-weight: bold; font-size: 30px">
+        Maaf toko TUTUP SEMENTARA
+      </p>
+    </section>
+
+    <!-- Products Section end -->
+
+    <!-- Contact Section start -->
+    <section id="contact" class="contact">
+      <h2><span>Kontak</span> Kami</h2>
+      <p>
+        Percayakan kepada kami untuk membuat momen spesial Anda lebih manis.
+        Hubungi kami hari ini!
+      </p>
+
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.1024949099202!2d113.52364493744241!3d-7.72172758714743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd703136504d563%3A0x82c39c8c196f31f0!2sArie%20Cake%20Tart%20Decoration%20%26%20Cookies!5e0!3m2!1sen!2sid!4v1702275896343!5m2!1sen!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
+
+        <form action="">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="nama" />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="email" />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="no hp" />
+          </div>
+          <button type="submit" class="btn">kirim pesan</button>
         </form>
       </div>
-    </div>
-    <!-- Shopping Cart end -->
-  </nav>
-  <!-- Navbar end -->
+    </section>
+    <!-- Contact Section end -->
 
-  <!-- Hero Section start -->
-  <section class="hero" id="home">
-    <div class="mask-container">
-      <main class="content">
-        <h1>Pesan kue jadi lebih <span>Mudah</span></h1>
-        <!-- <p>Dengan layanan yang ramah dan profesional, kami berusaha memberikan pengalaman terbaik dalam setiap pesanan kue yang ditempatkan bersama kami.</p> -->
-      </main>
-    </div>
-  </section>
-  <!-- Hero Section end -->
-
-  <!-- About Section start -->
-  <section id="about" class="about">
-    <h2><span>Tentang</span> Kami</h2>
-
-    <div class="row">
-      <div class="about-img">
-        <img src="img/ariecakelogo.png" alt="Tentang Kami" />
+    <!-- Footer start -->
+    <footer>
+      <div class="socials">
+        <a href="#"><i data-feather="phone"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
       </div>
-      <div class="content">
-        <h3>Kenapa memilih kue kami?</h3>
-        <p>
-          Kami adalah orang yang berkomitmen dalam menciptakan pengalaman
-          manis melalui kue, tart, kue kering, dll.
-        </p>
-        <p>
-          Setiap karya seni kami dipersembahkan dengan bahan berkualitas
-          tinggi dan dekorasi teliti oleh ahli kami. Percayakan kepada kami
-          untuk membuat momen spesial Anda lebih manis.
-        </p>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
       </div>
-    </div>
-  </section>
-  <!-- About Section end -->
+    </footer>
+    <!-- Footer end -->
 
-  <!-- Menu Section start -->
-  <section id="menu" class="menu">
-    <h2><span>Kategori</span> Produk</h2>
-    <p>
-      Kami menyediakan berbagai produk kue dengan kategori yang beragam,
-      antara lain:
-    </p>
-
-    <div class="row">
-      <div class="menu-card">
-        <img src="img/menu/kue tart.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Kue Tart -</h3>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/kue roll.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Kue Roll -</h3>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/brownies.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Brownies -</h3>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/bolu.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Bolu -</h3>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/kue kering.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Kue Kering -</h3>
-      </div>
-      <div class="menu-card">
-        <img src="img/menu/kue basah.svg" alt="Espresso" class="menu-card-img" />
-        <h3 class="menu-card-title">- Kue Basah -</h3>
-      </div>
-    </div>
-  </section>
-  <!-- Menu Section end -->
-
-  <!-- Products Section start -->
-  <section class="products" id="products" x-data="products">
-    <h2><span>Produk</span> Kami</h2>
-    <p style="font-weight: bold; font-size: 30px;">Maaf toko TUTUP SEMENTARA</p>
-    
-  </section>
-
-  <!-- Products Section end -->
-
-  <!-- Contact Section start -->
-  <section id="contact" class="contact">
-    <h2><span>Kontak</span> Kami</h2>
-    <p>
-      Percayakan kepada kami untuk membuat momen spesial Anda lebih manis.
-      Hubungi kami hari ini!
-    </p>
-
-    <div class="row">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.1024949099202!2d113.52364493744241!3d-7.72172758714743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd703136504d563%3A0x82c39c8c196f31f0!2sArie%20Cake%20Tart%20Decoration%20%26%20Cookies!5e0!3m2!1sen!2sid!4v1702275896343!5m2!1sen!2sid"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-
-      <form action="">
-        <div class="input-group">
-          <i data-feather="user"></i>
-          <input type="text" placeholder="nama" />
-        </div>
-        <div class="input-group">
-          <i data-feather="mail"></i>
-          <input type="text" placeholder="email" />
-        </div>
-        <div class="input-group">
-          <i data-feather="phone"></i>
-          <input type="text" placeholder="no hp" />
-        </div>
-        <button type="submit" class="btn">kirim pesan</button>
-      </form>
-    </div>
-  </section>
-  <!-- Contact Section end -->
-
-  <!-- Footer start -->
-  <footer>
-    <div class="socials">
-      <a href="#"><i data-feather="phone"></i></a>
-      <a href="#"><i data-feather="twitter"></i></a>
-      <a href="#"><i data-feather="facebook"></i></a>
-    </div>
-
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">Tentang Kami</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Kontak</a>
-    </div>
-  </footer>
-  <!-- Footer end -->
-
-  <!-- Modal Box Item Detail start -->
-  <div class="modal" id="item-detail-modal">
-    <div class="modal-container">
-      <a href="#" class="close-icon"><i data-feather="x"></i></a>
-      <div class="modal-content">
-        <img src="img/products/1.jpg" alt="Product 1" />
-        <div class="product-content">
-          <h3>Product 1</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Provident, tenetur cupiditate facilis obcaecati ullam maiores
-            minima quos perspiciatis similique itaque, esse rerum eius
-            repellendus voluptatibus!
-          </p>
-          <div class="product-stars">
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star" class="star-full"></i>
-            <i data-feather="star"></i>
+    <!-- Modal Box Item Detail start -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/products/1.jpg" alt="Product 1" />
+          <div class="product-content">
+            <h3>Product 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Provident, tenetur cupiditate facilis obcaecati ullam maiores
+              minima quos perspiciatis similique itaque, esse rerum eius
+              repellendus voluptatibus!
+            </p>
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 30K <span>IDR 55K</span></div>
+            <a href="#"
+              ><i data-feather="shopping-cart"></i> <span>add to cart</span></a
+            >
           </div>
-          <div class="product-price">IDR 30K <span>IDR 55K</span></div>
-          <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Modal Box Item Detail end -->
+    <!-- Modal Box Item Detail end -->
 
-  <!-- Feather Icons -->
-  <script>
-    feather.replace();
-  </script>
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
 
-  <!-- My Javascript -->
-  <script src="js/script.js"></script>
-</body>
+    <!-- My Javascript -->
+    <script src="js/script.js"></script>
 
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>
