@@ -26,12 +26,13 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+
     <!-- app -->
     <script src="src/app.js" async></script>
 
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
   </head>
 
   <body>
@@ -133,7 +134,7 @@
     <section class="hero" id="home">
       <div class="mask-container">
         <main class="content">
-          <h1>Pesan kue jadi lebih <span>Mudah</span></h1>
+          <h1 id="pesan"></h1>
           <!-- <p>Dengan layanan yang ramah dan profesional, kami berusaha memberikan pengalaman terbaik dalam setiap pesanan kue yang ditempatkan bersama kami.</p> -->
         </main>
       </div>
@@ -157,7 +158,7 @@
         </div>
         <div class="content">
           <h3 data-aos="fade-up" data-aos-duration="800">
-            Kenapa memilih kue kami?
+            Kenapa memilih kami?
           </h3>
           <p data-aos="fade-up" data-aos-duration="800">
             Kami adalah orang yang berkomitmen dalam menciptakan pengalaman
@@ -360,6 +361,13 @@
       })();
     </script>
     <!-- Histats.com  END  -->
+
+    <script>
+      var typed = new Typed("#pesan", {
+        strings: ["Pesan kue jadi lebih <span>Mudah</span>"],
+        typeSpeed: 68,
+      });
+    </script>
 
     <!-- Modal Box Item Detail start -->
     <div class="modal" id="item-detail-modal">
